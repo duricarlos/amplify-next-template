@@ -20,7 +20,7 @@ export default async function App() {
       <h1>My todos</h1>
       {/* <button onClick={createTodo}>+ new</button> */}
       <ul>
-        {fetchData.map((item) => (
+        {fetchData.map((item : any) => (
           <li key={item.id}>{item.text}</li>
         ))}
       </ul>
