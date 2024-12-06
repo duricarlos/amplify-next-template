@@ -18,11 +18,8 @@ export default async function App() {
   return (
     <main>
       <h1>My todos</h1>
-      {/* <button onClick={createTodo}>+ new</button> */}
       <ul>
-        {fetchData.map((item : any) => (
-          <li key={item.id}>{item.text}</li>
-        ))}
+        <li>{fetchData.text}</li>
       </ul>
       <div>
         🥳 App successfully hosted. Try creating a new todo.
@@ -38,8 +35,8 @@ export default async function App() {
 
 async function getData() { 
 
-  const data = await fetch('https://cat-fact.herokuapp.com/facts/')
+  const data = await fetch('https://cat-fact.herokuapp.com/facts/random')
   const dataJson = await data.json()
-  console.log(dataJson)
+  console.log(dataJson.text)
   return dataJson
 }
