@@ -15,12 +15,14 @@ import Link from "next/link";
 
 export default async function App() {
   const fetchData = await getData()
+  console.log(fetchData)  
 
   return (
     <main>
       <h1>My todos</h1>
       <ul>
-        <li>{fetchData.text}</li>
+        <li>{fetchData}</li>
+        <li id="test">Hello</li>
       </ul>
       <div>
         🥳 App successfully hosted. Try creating a new todo.
@@ -39,8 +41,10 @@ export default async function App() {
 
 async function getData() { 
 
-  const data = await fetch('https://cat-fact.herokuapp.com/facts/random')
-  const dataJson = await data.json()
-  console.log(dataJson.text)
+  const data = await fetch('https://binaryjazz.us/wp-json/genrenator/v1/genre/', {
+    cache: "no-store",
+  })
+  const dataJson = await data.text()
+  console.log(dataJson)
   return dataJson
 }
